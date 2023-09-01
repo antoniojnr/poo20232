@@ -7,7 +7,7 @@ public class Estudante {
     }
 
     public String getNome() {
-        return nome;
+        return nome + " ";
     }
 
     public void setNome(String nome) {
@@ -15,7 +15,7 @@ public class Estudante {
     }
 
     public int getMatricula() {
-        return matricula;
+        return matricula + 1;
     }
 
     public void setMatricula(int matricula) {
