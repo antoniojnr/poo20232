@@ -3,9 +3,6 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### Don't send the assignment answers
-/src/main/java/
-
 ### Gradle
 .gradle
 /build/
