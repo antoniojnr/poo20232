@@ -102,11 +102,7 @@ public class CarroAluguelTest {
     void testeSetDistancia() {
         CarroAluguel carro = new CarroAluguel(35.95f);
 
-        Exception exception2 = assertThrows(CarroDisponivelException.class, () -> carro.setDistanciaPercorrida(110));
-
-        String expectedMessage2 = "O carro está disponível.";
-        String actualMessage2 = exception2.getMessage();
-
-        assertTrue(actualMessage2.contains(expectedMessage2));
+        carro.setDistanciaPercorrida(110);
+        assertEquals(3954.5, carro.getDebito());
     }
 }
