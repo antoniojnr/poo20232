@@ -1,6 +1,10 @@
+import java.lang.reflect.Executable;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 public class FuncionarioTest {
+
     @org.junit.jupiter.api.Test
     void testNome() {
         Funcionario e = new Funcionario("Antonio", "Dias", 25_000f);
