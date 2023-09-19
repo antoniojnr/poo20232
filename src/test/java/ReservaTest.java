@@ -68,7 +68,7 @@ public class ReservaTest {
         checkout2.set(2023, Calendar.DECEMBER, 21);
 
         Reserva r2 = new Reserva(120.0);
-        r2.reservar(checkin.getTime(), checkout.getTime());
+        r2.reservar(checkin2.getTime(), checkout2.getTime());
 
         assertEquals(1188.0, r2.getValorTotal());
     }
