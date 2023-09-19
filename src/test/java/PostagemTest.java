@@ -32,7 +32,7 @@ public class PostagemTest {
         }
         assertEquals(1000, p.getCurtidas());
         for (int i = 0; i < 1010; i++) {
-            p.curtir();
+            p.descurtir();
         }
         assertEquals(0, p.getCurtidas());
     }
