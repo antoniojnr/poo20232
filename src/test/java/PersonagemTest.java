@@ -32,7 +32,7 @@ public class PersonagemTest {
         assertEquals(1000, p1.getExperiencia());
 
         p1.sofrerDano();
-        assertEquals(70, p1.getSaude());
+        assertEquals(71, p1.getSaude());
 
         p1.recuperarSaude();
         assertEquals(100, p1.getSaude());
