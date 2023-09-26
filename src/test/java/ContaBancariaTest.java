@@ -1,12 +1,11 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ContaBancariaTest {
 
     @Test
-    void testCriacao() {
+    void testCriacao() throws SaldoNegativoException, LimiteNegativoException {
         ContaBancaria c1 = new ContaBancaria();
         assertEquals(0, c1.getSaldo());
 
@@ -27,9 +26,9 @@ public class ContaBancariaTest {
     }
 
     @Test
-    void testDepositar() {
+    void testDepositar() throws SaldoNegativoException, LimiteNegativoException {
         ContaBancaria c1 = new ContaBancaria();
-        c1.depositar(90.0);
+        assertDoesNotThrow(() -> c1.depositar(90.0));
 
         assertEquals(90.0, c1.getSaldo());
 
@@ -39,17 +38,17 @@ public class ContaBancariaTest {
     }
 
     @Test
-    void testSacar() {
+    void testSacar() throws SaldoNegativoException, LimiteNegativoException {
         // Saque normal
         ContaBancaria c1 = new ContaBancaria(90.0);
-        c1.sacar(90.0);
+        assertDoesNotThrow(() -> c1.sacar(90.0));
         assertEquals(0, c1.getSaldo());
 
         // Saque do cheque especial
         ContaBancaria c2 = new ContaBancaria(0, 100.0);
-        c2.sacar(90.0);
+        assertDoesNotThrow(() -> c2.sacar(90.0));
         assertEquals(-90.0, c2.getSaldo());
-        c2.sacar(10.0);
+        assertDoesNotThrow(() -> c2.sacar(10.0));
         assertEquals(-100.0, c2.getSaldo());
 
         // Saque além do cheque especial
@@ -59,7 +58,7 @@ public class ContaBancariaTest {
 
         // Saque além do saldo disponível com limite
         ContaBancaria c3 = new ContaBancaria(100.0, 100.0);
-        c3.sacar(110.0);
+        assertDoesNotThrow(() -> c3.sacar(110.0));
         assertEquals(-10.0, c3.getSaldo());
 
         ContaBancaria c4 = new ContaBancaria(100.0, 100.0);
@@ -69,9 +68,9 @@ public class ContaBancariaTest {
     }
 
     @Test
-    void testDepositarEmSaldoNegativo() {
+    void testDepositarEmSaldoNegativo() throws SaldoNegativoException, LimiteNegativoException {
         ContaBancaria c2 = new ContaBancaria(0, 100.0);
-        c2.sacar(90.0);
+        assertDoesNotThrow(() -> c2.sacar(90.0));
         c2.depositar(110.0);
 
         assertEquals(20.0, c2.getSaldo());

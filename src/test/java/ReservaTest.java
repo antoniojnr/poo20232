@@ -14,7 +14,7 @@ public class ReservaTest {
         checkout.set(2023, Calendar.DECEMBER, 12);
 
         Reserva r = new Reserva(120.0);
-        r.reservar(checkin.getTime(), checkout.getTime());
+        assertDoesNotThrow(() -> r.reservar(checkin.getTime(), checkout.getTime()));
 
         assertEquals(2, r.getDiarias());
         assertTrue(r.isReservado());
@@ -46,7 +46,7 @@ public class ReservaTest {
         checkout.set(2023, Calendar.DECEMBER, 12);
 
         Reserva r = new Reserva(120.0);
-        r.reservar(checkin.getTime(), checkout.getTime());
+        assertDoesNotThrow(() -> r.reservar(checkin.getTime(), checkout.getTime()));
 
         assertEquals(240.0, r.getValorTotal());
 
@@ -57,7 +57,8 @@ public class ReservaTest {
         checkout1.set(2023, Calendar.DECEMBER, 19);
 
         Reserva r1 = new Reserva(120.0);
-        r1.reservar(checkin1.getTime(), checkout1.getTime());
+        assertDoesNotThrow(() ->
+                r1.reservar(checkin1.getTime(), checkout1.getTime()));
 
         assertEquals(1026.0, r1.getValorTotal());
 
@@ -68,7 +69,7 @@ public class ReservaTest {
         checkout2.set(2023, Calendar.DECEMBER, 21);
 
         Reserva r2 = new Reserva(120.0);
-        r2.reservar(checkin2.getTime(), checkout2.getTime());
+        assertDoesNotThrow(() -> r2.reservar(checkin2.getTime(), checkout2.getTime()));
 
         assertEquals(1188.0, r2.getValorTotal());
     }
