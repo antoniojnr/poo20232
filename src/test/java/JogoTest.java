@@ -8,7 +8,7 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestJogo {
+public class JogoTest {
     @Test
     void testCriacao() {
         ArmaLancavel armaLancavel = new ArmaLancavel("Lanca", 50, 30);

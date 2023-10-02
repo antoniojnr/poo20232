@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
-public class TestMercado {
+public class MercadoTest {
     @Test
     void testCriacao() {
         Compra c = new Compra();
