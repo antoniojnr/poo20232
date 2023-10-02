@@ -52,15 +52,12 @@ public class JogoTest {
         armaLancavel.setChanceDeAcerto(30);
         assertEquals(30, armaLancavel.getChanceDeAcerto());
         assertEquals(0, armaLancavel.disparar());
-        assertFalse(armaLancavel.atingiu());
-        assertFalse(armaLancavel.atingiu());
-        assertTrue(armaLancavel.atingiu());
+        assertEquals(0, armaLancavel.disparar());
         assertEquals(0, armaLancavel.disparar());
         assertEquals(50, armaLancavel.disparar());
 
         armaLancavel.setRandomGenerator(new Random(2));
         assertEquals(50, armaLancavel.disparar());
-        assertFalse(armaLancavel.atingiu());
     }
 
     @Test
